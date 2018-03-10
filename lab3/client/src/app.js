@@ -75,9 +75,42 @@ main();
 function main () {
 	// TODO: fill the blank based on the theme you have choosen
 	const initialState = {
-		example: 'Hello custom element',
+		
 		counter: 0,
-		generators: [],
+		
+		generators:
+		[
+			{
+				type: 'autonomous',
+				name: 'Organs',
+				description: 'Their tiny Organs, the lowest of the low. Will only generate 10 Skulls per minute.',
+				rate: 1,
+				quantity : 0,
+				baseCost: 5,
+				ulockValue :5
+			},
+
+			{
+				type: 'autonomous',
+				name: 'Skulls',
+				description: 'Their putrid Corpses will generate 25 Skulls.',
+				rate: 25,
+				quantity : 0,
+				baseCost: 25,
+				ulockValue :25
+			},
+
+			{
+				type: 'autonomous',
+				name: 'Skeletons',
+				description: 'Their dry Skeletons will generate the most resource.',
+				rate: 55,
+				quantity : 0,
+				baseCost: 55,
+				ulockValue :55
+			}
+			
+		],
 		story: []
 	};
 
