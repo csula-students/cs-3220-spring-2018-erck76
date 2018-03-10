@@ -33,7 +33,7 @@ export default class Generator {
 			return this.baseCost;
 		}
 
-		var xt = this.baseCost * Math.pow(1 + constants.growthRatio, this.quantity).toFixed(2);
+		var xt = this.baseCost * Math.pow(1 + constants.growthRatio, this.quantity).toFixed(3);
 		return xt;
 	}
 
@@ -47,4 +47,3 @@ export default class Generator {
 		return this.rate * this.quantity;
 	}
 }
-
