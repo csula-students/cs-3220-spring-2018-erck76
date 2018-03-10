@@ -2,12 +2,10 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="app.css">
+	<link rel="stylesheet" href="app.css">
 	<title>Nightbringers</title>
 </head>
 <body>
-	<component-example></component-example>
-	<script src="dest/app.bundle.js"></script>
 		<header><h1>{Nightbringers}</h1></header>
 		<div class="vertical-menu">
 				<a href="#" class="active">Kings of the NightWorld, where they lurk.</a>
@@ -19,45 +17,42 @@
 				
 			</div>
 	<main>
-		<button id="but">{Kill}</button>
-		<p><h2 id="counter">Skulls: Start killing to gain skulls!</h2></p>
-
+		<div class="btn-row">
+		<game-counter></game-counter>
+			<div class="btn-row2">
+				<game-button></game-button>	
+			</div>
+		</div>
+		
 		&emsp;
+		<br>
 
 		<div class="card">
 				<div class="container">
-					<game-generator data-id='10' data-payload="Organs"></game-generator>
+					<game-generator data-id="1"></game-generator>
 				</div>
 			</div>
 
 			<div class="card2">
 					<div class="container">
-						<game-generator data-id='1000' data-payload="Skeleton"></game-generator>
+						<game-generator data-id="3"></game-generator>
 					</div>
 				</div>
 
 			<div class="card3">
 					<div class="container">
-						<game-generator data-id='500' data-payload="Skulls"></game-generator>
+						<game-generator data-id="2"></game-generator>
 					</div>
 				</div>
+		
 
-		<footer><p><h6>&copy; Erick C. 2018</h6></p></footer>
-
+				
 	</main>
 
-	<script>
-		window.incrementalGame = {
-			state: {
-				counter: 0
-			}
-		};
-	</script>
-
-	<script src="app.js"></script>
-	<script src ="dest/app.bundle.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.1.0/webcomponents-lite.js"></script>
+	<script src ="dest/app.bundle.js"></script>
 
+	<footer><p><h6>&copy; Erick C. 2018</h6></p></footer>
 
 	
 </body>
