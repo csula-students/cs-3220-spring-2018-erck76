@@ -35,7 +35,7 @@ public class EditEventServlet extends HttpServlet {
 			}
 		}
 		
-		out.print("<html lang=\"en\">");
+		/*out.print("<html lang=\"en\">");
 		out.print("<head>");
 		out.print("<meta charset=\"UTF-8\">");
 		out.print("<title>Incremental game framework - game information Edit</title>");
@@ -64,7 +64,7 @@ public class EditEventServlet extends HttpServlet {
 		out.print("		<button>Submit</button>");
 		out.print("</form>");
 		
-		out.print("</body>");
+		out.print("</body>");*/
 	}
 	
 	
