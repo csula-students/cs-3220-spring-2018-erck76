@@ -1,0 +1,19 @@
+button {
+	color: black;
+	background-color: lightblue;
+	font-size: 16px;
+	padding: 0.5em 1em;
+}
+
+table {
+	border: 1px darkblue;
+	float: right; 
+}
+tr {
+	background-color: white;
+}
+
+input {
+	font-size: 16px;
+	padding: 0.5em 1em;
+}
