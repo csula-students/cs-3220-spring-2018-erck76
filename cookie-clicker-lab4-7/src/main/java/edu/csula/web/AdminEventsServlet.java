@@ -33,12 +33,20 @@ public class AdminEventsServlet extends HttpServlet {
 		
 		if (userDao.getAuthenticatedUser().isPresent())
 		{
+			request.setAttribute("events", events);
+			request.getRequestDispatcher("../WEB-INF/admin-events.jsp")
+			  .forward(request, response);
+		}
+			else
+			{
+				response.sendRedirect("auth");
+			}
 		
 		/*request.setAttribute("events", events);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/admin-events.jsp");
 		dispatcher.forward(request, response);*/
 		
-		out.print("<!DOCTYPE html>");
+		/*out.print("<!DOCTYPE html>");
 		out.print("<html lang=\"en\">");
 		out.print("<head>");
 		out.print("	<meta charset=\"UTF-8\">");
@@ -94,7 +102,7 @@ public class AdminEventsServlet extends HttpServlet {
 		else
 		{
 			response.sendRedirect("auth");
-		}
+		}*/
 		
 	}
 
