@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Collection;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,7 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import edu.csula.storage.servlet.EventsDAOImpl;
+import edu.csula.storage.servlet.UsersDAOImpl;
 import edu.csula.storage.EventsDAO;
+import edu.csula.storage.UsersDAO;
 import edu.csula.models.Event;
 
 @WebServlet("/admin/events")
@@ -24,7 +27,16 @@ public class AdminEventsServlet extends HttpServlet {
 		
 		EventsDAO dao = new EventsDAOImpl(getServletContext());
 		Collection<Event> events = dao.getAll();
+		
 		System.out.println(events);
+		UsersDAO userDao = new UsersDAOImpl(request.getSession());
+		
+		if (userDao.getAuthenticatedUser().isPresent())
+		{
+		
+		/*request.setAttribute("events", events);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/admin-events.jsp");
+		dispatcher.forward(request, response);*/
 		
 		out.print("<!DOCTYPE html>");
 		out.print("<html lang=\"en\">");
@@ -41,45 +53,6 @@ public class AdminEventsServlet extends HttpServlet {
 		out.print("			<a href=\"action\">Generators</a> |");
 		out.print("			<a href=\"action\">Events</a>");
 		out.print("		</nav>");
-		
-		/*out.print("			<tr>");
-		out.print("				<td>Grandma shows up</td>");
-		out.print("				<td>Lorem...</td> ");
-		out.print("				<td>10</td>");
-		out.print("			</tr>");*/
-		
-		/*out.print("			<tr>");
-		out.print("				<td>You can construct factory now!</td>");
-		out.print("				<td>Lorem...</td> ");
-		out.print("				<td>50</td>");
-		out.print("			</tr>");*/
-		
-		/*out.print("			<tr>");
-		out.print("				<td>We've found cookies in deep mountain... in the mine</td>");
-		out.print("				<td>Lorem...</td>");
-		out.print("				<td>200</td>");
-		out.print("			 </tr>");
-		out.print("		</table>");*/
-		
-		/*out.print("		<p><form method=\"POST\">");
-		out.print("			Event Name:<br>");
-		out.print("			<input type=\"text\" name=\"name\"><br>");
-		out.print("		</form></p>");
-		
-		out.print("		 <p><form method=\"POST\">");
-		out.print("			Event Description:");
-		out.print("		 </p>");
-		out.print("		 <textarea cols=\"30\" rows=\"10\"></textarea>");
-		out.print("		</form></p>");
-		
-		
-		out.print("		<p><form method=\"POST\">");
-		out.print("			Trigger At:<br>");
-		out.print("			<input type=\"text\" name=\"TriggerAt\"><br>");
-		out.print("		</form></p>");
-		
-		
-		out.print("		 <button align=\"center\" type=\"button\">{Add|Edit}</button>");*/
 		
 		out.println("<form method=\"POST\">");
 		out.println("	<label for=\"eventname\">Event Name</label><br>");
@@ -117,6 +90,11 @@ public class AdminEventsServlet extends HttpServlet {
 		out.println("</table>");
 		out.print("</body>");
 		out.print("</html>");
+		}
+		else
+		{
+			response.sendRedirect("auth");
+		}
 		
 	}
 
