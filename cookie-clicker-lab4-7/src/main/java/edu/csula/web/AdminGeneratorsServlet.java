@@ -22,15 +22,18 @@ public class AdminGeneratorsServlet extends HttpServlet {
 	public void doGet( HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
+		
 		// TODO: render the generators page HTML
 		//out.println("<h1>Hello generators servlet!</h1>");
 		GeneratorsDAO dao = new GeneratorsDAOImpl(getServletContext());
 		Collection<Generator> generators = dao.getAll();
+		
 		//System.out.println(generators);
 		UsersDAO userDao = new UsersDAOImpl(request.getSession());
 		
 		if(userDao.getAuthenticatedUser().isPresent())
 		{
+			request.setAttribute("generatorEntry", generators);
 			request.getRequestDispatcher("../WEB-INF/admin-generator.jsp").forward(request, response);
 		}
 		else
