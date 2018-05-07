@@ -1,5 +1,5 @@
 // PubSub is single object for publish data to multiple subscribers
-class PubSub {
+<%--class PubSub {
     constructor () {
         this.subscribers = [];
     }
@@ -32,4 +32,4 @@ pubSub.subscribe(counter => {
 counter ++;
 console.log(window.incrementalGame.state.counter = counter);//links with the counter in the html script
 document.getElementById("counter").innerText ="Skulls: " + counter ;
-});
+});--%>
