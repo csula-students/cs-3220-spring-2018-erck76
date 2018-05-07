@@ -6,12 +6,12 @@ import java.sql.SQLException;
 
 public class Database implements edu.csula.storage.Database{
 	// FIXME: don't hard commit your credential
-	private static final String database = "cs3220_lab";
-	private static final String host = "localhost";
+	private static final String database = "cs3220stu37";
+	private static final String host = "cs3.calstatela.edu";
 	private static final String url = String.format("jdbc:mysql://%s/%s", host, database);
-	private static final String username = "root";
-	private static final String password = "";
-
+	private static final String username = "cs3220stu37";
+	private static final String password = "";//not sure what to put here
+	
 	public Database() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");

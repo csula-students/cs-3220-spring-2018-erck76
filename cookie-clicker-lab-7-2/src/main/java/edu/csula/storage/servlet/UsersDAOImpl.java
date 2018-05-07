@@ -22,19 +22,32 @@ public class UsersDAOImpl implements UsersDAO {
 
 	@Override
 	public boolean authenticate(String username, String password) {
-		// TODO: check if username/password combination is valid and store the
-		//       username/password into the session
+		
+		if (username.equals("admin") && password.equals("cs3220password"))
+		{
+			context.setAttribute(CONTEXT_NAME,new User(0,"admin","cs3220password"));
+			return true;
+		}
+		
 		return false;
 	}
 
 	@Override
 	public Optional<User> getAuthenticatedUser() {
 		// TODO: return the authenticated user if there is any
-		return Optional.empty();
+		User user = (User) context.getAttribute(CONTEXT_NAME);
+		if (user == null)
+		{
+			return Optional.empty();
+		}
+		return Optional.of(user);
 	}
+
+	
 
 	@Override
 	public void logout() {
 		// TOOD: log user out using `invalidate`
+		this.context.invalidate();
 	}
 }
