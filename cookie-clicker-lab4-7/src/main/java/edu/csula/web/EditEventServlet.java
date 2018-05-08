@@ -78,27 +78,17 @@ public class EditEventServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
 		
-		EventsDAO dao = new EventsDAOImpl(getServletContext());
+		//EventsDAO dao = new EventsDAOImpl(getServletContext());
+		 EventsDAOImpl dao = new EventsDAOImpl(new Database());
 		
 		int id = Integer.parseInt(request.getParameter("id"));
-		Event eve = null;
+		String name = request.getParameter("eventname");
+		String description = request.getParameter("eventdes");
+		int triggerAt = Integer.parseInt(request.getParameter("trigAt"));
 		
-		for (Event x : dao.getAll())
-		{
-			if (x.getId() == id)
-			{
-				eve = x;
-			}
-		}
+		Event event = new Event(id, name, description, triggerAt);
 		
-		String name = request.getParameter("name");
-		String description = request.getParameter("description");   
-		int triggerAt = Integer.parseInt(request.getParameter("triggerAt"));
-		
-		eve.setId(id);
-		eve.setName(name);
-		eve.setDescription(description);
-		eve.setTriggerAt(triggerAt);
+		dao.set(id, event);
 
 		response.sendRedirect("events");//for some reason crashes here. Do not know where to redirect!!
 
