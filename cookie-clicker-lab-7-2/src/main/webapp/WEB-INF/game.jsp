@@ -58,7 +58,7 @@ window.incrementalGame = {
 		};
     	window.incrementalGame.state = ${states};
 </script>
-<script  src = "app.js"></script>
+<script  src = "app.bundle.js"></script>
 	
 </body>
 </html>
