@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import edu.csula.storage.mysql.GeneratorsDAOImpl;
+import edu.csula.storage.mysql.Database;
 import edu.csula.models.Generator;
 import edu.csula.storage.GeneratorsDAO;
 import edu.csula.storage.UsersDAO;
