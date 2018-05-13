@@ -15,7 +15,8 @@ public class Database implements edu.csula.storage.Database{
 	public Database() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-		} catch( ClassNotFoundException e ) {
+		} catch( ClassNotFoundException e )
+		{
 			throw new IllegalStateException(e);
 		}
 	}
