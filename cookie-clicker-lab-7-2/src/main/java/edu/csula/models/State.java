@@ -1,0 +1,20 @@
+package edu.csula.models;
+
+import java.util.Collection;
+
+import edu.csula.models.Event;
+import edu.csula.models.Generator;
+
+public class State {
+	int counter, quantity;
+	counter = 0;
+	quantity = 0;
+	
+	private Collection<Event> story;
+	private Collection<Generator> generators;
+
+	public State(Collection<Event> events, Collection<Generator> generators) {
+		this.story = events;
+		this.generators = generators;
+	}
+}
