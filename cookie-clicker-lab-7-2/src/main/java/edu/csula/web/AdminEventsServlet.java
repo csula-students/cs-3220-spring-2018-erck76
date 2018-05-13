@@ -6,12 +6,13 @@ import java.util.Collection;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import edu.csula.storage.mysql.EventsDAOImpl;
+import edu.csula.storage.mysql.Database;
 import edu.csula.storage.servlet.EventsDAOImpl;
 import edu.csula.storage.servlet.UsersDAOImpl;
 import edu.csula.storage.EventsDAO;
