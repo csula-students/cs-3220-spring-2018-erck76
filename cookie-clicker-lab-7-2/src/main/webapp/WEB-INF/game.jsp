@@ -5,6 +5,10 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="game.css">
 	<title>Nightbringers</title>
+	<script>
+		state = ${state};
+		window.defaultState = state;
+	</script>
 </head>
 <body>
 		<header><h1>{Nightbringers}</h1></header>
@@ -16,6 +20,9 @@
 	<main>
 		<button id="but">{Kill}</button>
 		<p><h2 id="counter">Skulls: Start killing to gain skulls!</h2></p>
+		<c:forEach var = "i" begin = "0" end = "${genIndex}">
+         	<game-generator data-id="${i}"></game-generator>
+      	</c:forEach>
 
 		&emsp;
 
@@ -49,15 +56,7 @@
 		<footer><p><h6>&copy; Erick C. 2018</h6></p></footer>
 
 	</main>
-
-	<script>
-window.incrementalGame = {
-	        state: {
-	            counter: 0
-	        }
-		};
-    	window.incrementalGame.state = ${states};
-</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.1.0/webcomponents-lite.js"></script>
 <script  src = "app.bundle.js"></script>
 	
 </body>
